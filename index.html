@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ni-shaat Gafieldien — Digital Designer & Web Developer</title>
+  <title>Ni-shaat Gafieldien Digital Designer & Web Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     /* ─── TOKENS ─────────────────────────────────────── */
@@ -529,7 +530,7 @@
     .proj-card:hover .proj-thumb-inner { transform: scale(1.04); }
 
     .proj-thumb {
-      aspect-ratio: 4/5;
+      aspect-ratio: 1/1;
       overflow: hidden;
     }
 
@@ -830,17 +831,15 @@
     /* ─── CONTACT ───────────────────────────────────── */
     #contact {
       background: linear-gradient(158deg, #EDD5BE 0%, #D4A882 100%);
-      text-align: center;
       padding: 144px 48px;
     }
 
     #contact .sec-label {
-      justify-content: center;
       color: #8C5235;
     }
 
-    #contact .sec-label::before { display: none; }
-    #contact .sec-title { font-size: clamp(2.8rem, 5vw, 4.9rem); color: var(--ink); margin-bottom: 18px; }
+    #contact .sec-label::before { display: block; }
+    #contact .sec-title { font-size: clamp(2.8rem, 5vw, 4.9rem); color: var(--ink); }
 
     .contact-sub {
       font-family: var(--font-sans);
@@ -888,6 +887,133 @@
       letter-spacing: 0.26em;
       text-transform: uppercase;
       color: #9A6B4A;
+    }
+
+    /* ─── CONTACT FORM ──────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: start;
+      max-width: 1240px;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-left .sec-title {
+      margin-bottom: 24px;
+    }
+
+    .contact-form {
+      max-width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 28px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8C5235;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 14px 16px;
+      border: 1px solid var(--border-col);
+      background: rgba(249,246,240,0.5);
+      color: var(--ink);
+      border-radius: 2px;
+      transition: all .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: var(--cream);
+      border-color: #B8714A;
+      box-shadow: 0 0 0 3px rgba(184,113,74,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--ink);
+      padding: 13px 28px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+
+    .form-submit:hover {
+      background: var(--clay);
+      transform: translateY(-1px);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .thank-you-message {
+      display: none;
+    }
+
+    .thank-you-message.show {
+      display: block;
+      animation: fadeIn .6s ease;
+    }
+
+    .thank-you-message h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .thank-you-message p {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ─── FOOTER ────────────────────────────────────── */
@@ -965,7 +1091,7 @@
       #home { grid-template-columns: 1fr; }
       .hero-left { padding: 60px 20px 40px; }
       .hero-right { min-height: 360px; }
-      .about-grid, .agency-grid { grid-template-columns: 1fr; gap: 56px; }
+      .about-grid, .agency-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
       .projects-grid { grid-template-columns: 1fr; }
       .svc-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 36px 20px; flex-direction: column; text-align: center; }
@@ -985,7 +1111,7 @@
   <nav>
     <a class="nav-logo" href="#home">Ni-shaat.Gafieldien</a>
     <ul class="nav-links">
-      <li><a href="#home">Index</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#services">Services</a></li>
@@ -999,7 +1125,7 @@
   </nav>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#home"     onclick="closeMob()">Index</a>
+    <a href="#home"     onclick="closeMob()">Home</a>
     <a href="#about"    onclick="closeMob()">About</a>
     <a href="#work"     onclick="closeMob()">Work</a>
     <a href="#services" onclick="closeMob()">Services</a>
@@ -1010,17 +1136,17 @@
   <!-- ─── HERO ─────────────────────────────────────── -->
   <section id="home">
     <div class="hero-left">
-      <p class="eyebrow reveal">Portfolio · 2025 · Cape Town ✦ ZA</p>
+      <p class="eyebrow reveal">Portfolio · 2026 · Cape Town ✦ ZA</p>
       <h1 class="hero-title reveal d1">
         Design-focused<br>web developer<br>&amp; <em>digital strategist.</em>
       </h1>
       <p class="hero-body reveal d2">
         I create visually engaging, user-focused websites that align with business goals
-        and drive meaningful results — combining technical skill with strong design sensibility
+        and drive meaningful results combining technical skill with strong design sensibility
         to build impactful digital experiences.
       </p>
       <div class="hero-actions reveal d3">
-        <a class="btn-primary" href="#work">See selected work →</a>
+        <a class="btn-primary" href="#work">See my work →</a>
         <a class="btn-ghost" href="#contact">Get in touch</a>
       </div>
       <div class="hero-meta reveal d4">
@@ -1041,13 +1167,10 @@
 
     <div class="hero-right">
       <div class="hero-bg"></div>
-      <div class="hero-monogram">
-        <div class="letters">NG</div>
-        <div class="sub">Digital Designer</div>
-      </div>
+      <img src="img/WhatsApp Image 2026-04-19 at 16.59.48.jpeg" alt="Ni-shaat Gafieldien" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;" />
       <div class="hero-badge">
         <strong>Available</strong>
-        <p>2025 — Now</p>
+        <p>2024 - Now</p>
       </div>
     </div>
   </section>
@@ -1081,8 +1204,8 @@
         <p class="sec-label">✦ About me</p>
         <h2 class="sec-title" style="margin-bottom:40px;">Holistic <em>digital</em><br>thinking.</h2>
         <p>I'm Ni-shaat Gafieldien, a design-focused web developer based in Cape Town, South Africa. I specialise in creating responsive websites, brand-focused digital experiences, and strategic online solutions that help businesses grow.</p>
-        <p>With a background spanning digital design, social media management, SEO, and brand strategy, I take a holistic approach to digital development — translating client visions into functional, visually appealing platforms that enhance user engagement and strengthen brand identity.</p>
-        <p>I lead client consultations, manage website builds, collaborate with cross-functional teams, and leverage modern tools and AI workflows to deliver scalable solutions. Adaptable, detail-oriented, and always client-focused.</p>
+        <p style="margin-top: 32px;">With a background spanning digital design, social media management, SEO, and brand strategy, I take a holistic approach to digital development translating client visions into functional, visually appealing platforms that enhance user engagement and strengthen brand identity.</p>
+        <p style="margin-top: 32px;">I lead client consultations, manage website builds, collaborate with cross-functional teams, and leverage modern tools and AI workflows to deliver scalable solutions. Adaptable, detail-oriented, and always client-focused.</p>
       </div>
 
       <div class="reveal d2">
@@ -1122,7 +1245,7 @@
       <a class="proj-card reveal" href="https://retiresmart.co.za" target="_blank" rel="noopener">
         <div class="proj-thumb">
           <div class="proj-thumb-inner" style="background:linear-gradient(145deg,#C9906A,#A86840);">
-            <div class="proj-mono">RS<small>Financial Planning</small></div>
+            <div class="proj-mono"><i class="fas fa-wallet" style="font-size: 3rem;"></i><small>Financial Planning</small></div>
           </div>
         </div>
         <div class="proj-body">
@@ -1136,13 +1259,13 @@
       <a class="proj-card reveal d1" href="https://chickchop.co.za" target="_blank" rel="noopener">
         <div class="proj-thumb">
           <div class="proj-thumb-inner" style="background:linear-gradient(145deg,#DEAD90,#C48A60);">
-            <div class="proj-mono">C&amp;C<small>Restaurant · Branding</small></div>
+            <div class="proj-mono"><i class="fas fa-utensils" style="font-size: 3rem;"></i><small>Restaurant · Branding</small></div>
           </div>
         </div>
         <div class="proj-body">
           <p class="proj-tag">Restaurant · Branding · Responsive</p>
           <h3 class="proj-name">Chick &amp; Chop</h3>
-          <p class="proj-desc">Responsive restaurant website with a focus on usability, branding, and content presentation — built to drive customer engagement.</p>
+          <p class="proj-desc">Responsive restaurant website with a focus on usability, branding, and content presentation built to drive customer engagement.</p>
           <span class="proj-link">Visit site →</span>
         </div>
       </a>
@@ -1150,13 +1273,13 @@
       <a class="proj-card reveal d2" href="https://bcta.co.za" target="_blank" rel="noopener">
         <div class="proj-thumb">
           <div class="proj-thumb-inner" style="background:linear-gradient(145deg,#B07850,#8C5A30);">
-            <div class="proj-mono">BC<small>Web Development</small></div>
+            <div class="proj-mono"><i class="fas fa-code" style="font-size: 3rem;"></i><small>Web Development</small></div>
           </div>
         </div>
         <div class="proj-body">
           <p class="proj-tag">Web Development · Design</p>
           <h3 class="proj-name">BCTA</h3>
-          <p class="proj-desc">Clean, structured web presence designed for clarity and impact — communicating services effectively to the target audience.</p>
+          <p class="proj-desc">Clean, structured web presence designed for clarity and impact communicating services effectively to the target audience.</p>
           <span class="proj-link">Visit site →</span>
         </div>
       </a>
@@ -1173,7 +1296,7 @@
       <div class="svc-item reveal">
         <div class="svc-num">01</div>
         <h3 class="svc-name">Web Design &amp; Development</h3>
-        <p class="svc-desc">Responsive, user-friendly websites built for performance and visual impact — from wireframe to live deployment.</p>
+        <p class="svc-desc">Responsive, user-friendly websites built for performance and visual impact from wireframe to live deployment.</p>
       </div>
       <div class="svc-item reveal d1">
         <div class="svc-num">02</div>
@@ -1218,10 +1341,7 @@
     <div class="agency-grid">
       <div class="agency-visual reveal">
         <div class="agency-block">
-          <div>
-            <div class="letters">TTS</div>
-            <div class="sub">Digital Solutions Agency</div>
-          </div>
+          <img src="img/three_stars_logo_final.svg" alt="The Three Stars Digital" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="agency-float">
           <strong>Role</strong>
@@ -1232,9 +1352,9 @@
       <div class="reveal d2">
         <p class="sec-label">✦ The agency</p>
         <h2 class="sec-title" style="margin-bottom:34px;">The Three Stars <em>Digital.</em></h2>
-        <p>I am the Co-Founder of The Three Stars Digital Solutions Agency — a web development and digital solutions business focused on helping brands build strong, effective online presences.</p>
-        <p>Through The Three Stars, I lead client consultations, develop responsive websites, and deliver end-to-end digital solutions tailored to business goals. Our services include website development, branding, SEO optimisation, and digital strategy.</p>
-        <p>This role has strengthened my ability to manage projects from concept to launch, collaborating with clients to create scalable, results-driven digital platforms.</p>
+        <p>I am the Co-Founder of The Three Stars Digital Solutions Agency a web development and digital solutions business focused on helping brands build strong, effective online presences.</p>
+        <p style="margin-top: 32px;">Through The Three Stars, I lead client consultations, develop responsive websites, and deliver end-to-end digital solutions tailored to business goals. Our services include website development, branding, SEO optimisation, and digital strategy.</p>
+        <p style="margin-top: 32px;">This role has strengthened my ability to manage projects from concept to launch, collaborating with clients to create scalable, results-driven digital platforms.</p>
         <div class="stats-row">
           <div class="stat">
             <div class="num">3+</div>
@@ -1249,14 +1369,18 @@
             <div class="lbl">Client focus</div>
           </div>
         </div>
+        <div style="display: flex; gap: 16px; margin-top: 40px;">
+          <a class="btn-primary" href="https://instagram.com/the.thr33.stars" target="_blank" rel="noopener">Instagram →</a>
+          <a class="btn-primary" href="https://t3s-ten.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ─── CV STRIP ──────────────────────────────────── -->
   <div class="cv-strip">
-    <p><em>Download my CV</em> — Full-Stack Web Developer &amp; Digital Designer</p>
-    <a class="btn-cv" href="Ni-shaat_Gafieldien_-_Digital_Designer.pdf" download>
+    <p><em>Download my CV</em> Full-Stack Web Developer &amp; Digital Designer</p>
+    <a class="btn-cv" href="img/Ni-shaat Gafieldien - Digital Designer.pdf" download>
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
         <path d="M6.5 1v7.5M6.5 8.5l-2.5-2.5M6.5 8.5l2.5-2.5M1 11h11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -1266,17 +1390,49 @@
 
   <!-- ─── CONTACT ───────────────────────────────────── -->
   <section id="contact">
-    <div class="reveal">
-      <p class="sec-label">Let's collaborate</p>
-      <h2 class="sec-title" style="margin-bottom:18px;">Have a project<br>in <em>mind?</em></h2>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="reveal">
+          <p class="sec-label">Let's collaborate</p>
+          <h2 class="sec-title">Have a project<br>in <em>mind?</em></h2>
+        </div>
+        <p class="contact-sub reveal d1">Available for freelance opportunities, collaborations, and full-time roles.</p>
+      </div>
+
+      <div>
+        <!-- Contact Form -->
+        <form action="https://formspree.io/f/xzdygnpv" method="POST" class="contact-form reveal d2" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+
+        <!-- Thank You Message -->
+        <div class="thank-you-message" id="thankYouMessage">
+          <h3>Thank you!</h3>
+          <p>Your message has been sent successfully. I'll get back to you as soon as possible.</p>
+          <a class="btn-primary" href="#home">Back to home</a>
+        </div>
+      </div>
     </div>
-    <p class="contact-sub reveal d1">Available for freelance opportunities, collaborations, and full-time roles.</p>
-    <div class="contact-info reveal d2">
-      <a class="contact-email" href="mailto:nishaatgafieldien@gmail.com">nishaatgafieldien@gmail.com →</a>
-      <p class="contact-phone">063 387 4337</p>
-      <p class="contact-loc">Cape Town, South Africa</p>
-    </div>
-    <a class="btn-primary reveal d3" href="mailto:nishaatgafieldien@gmail.com">Send a message →</a>
   </section>
 
   <!-- ─── FOOTER ────────────────────────────────────── -->
@@ -1284,7 +1440,7 @@
     <span class="footer-logo">Ni-shaat Gafieldien</span>
     <p class="footer-copy">© 2026 Ni-shaat Gafieldien. All rights reserved.<br>Designed &amp; built in Cape Town.</p>
     <ul class="footer-nav">
-      <li><a href="#home">Index</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1323,6 +1479,37 @@
             navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
         });
       }, { rootMargin: '-40% 0px -40% 0px' }).observe(s);
+    });
+
+    /* Contact form handling */
+    const contactForm = document.getElementById('contactForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      
+      fetch('https://formspree.io/f/xzdygnpv', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          thankYouMessage.classList.add('show');
+          
+          // Scroll to thank you message
+          setTimeout(() => {
+            thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending your message. Please try again.');
+      });
     });
   </script>
 </body>
